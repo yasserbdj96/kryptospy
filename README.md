@@ -25,7 +25,7 @@
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/yasserbdj96/kryptospy)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/yasserbdj96/kryptospy)
 [![GitHub license](https://img.shields.io/github/license/yasserbdj96/kryptospy)](https://github.com/yasserbdj96/kryptospy)
-[![Join the chat at https://gitter.im/yasserbdj96/kryptospy](https://badges.gitter.im/yasserbdj96/kryptospy.svg)](https://gitter.im/yasserbdj96/kryptospy?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/yasserbdj96/kryptospy](https://badges.gitter.im/yasserbdj96/kryptospy.svg)](https://gitter.im/yasserbdj96/kryptospy?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Join the chat at https://gitter.im/yasserbdj96/kryptospy](https://badges.gitter.im/yasserbdj96/kryptospy.svg)](https://gitter.im/yasserbdj96/kryptospy?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 <br>
 <h2>Python Package Installation:</h2>
