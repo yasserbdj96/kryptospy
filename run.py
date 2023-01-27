@@ -22,10 +22,6 @@ ap.add_argument('-t', '--text', required=True)
 ap.add_argument('-c', '--condition', required=True)
 args = ap.parse_args()
 
-
-
-
-
 try:
     #import os
     import sys

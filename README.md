@@ -87,7 +87,7 @@ print(p2)
 from kryptospy import kryptospy
 # Example:1
 #For encryption
-p1=kryptospy("123","Example:1").enc()
+p1=kryptospy("123","Example1").enc()
 print(p1)
     
 #To decrypt

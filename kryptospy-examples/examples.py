@@ -12,11 +12,16 @@
 #   |                                                          |
 
 #START{
-from kryptospy import *
+try:
+    from kryptospy import *
+except:
+    import os
+    os.chdir("../")
+    from kryptospy import *
 
 # Example:1
 #For encryption
-p1=kryptospy("123","Example:1").enc()
+p1=kryptospy("123","Example1").enc()
 print(p1)
     
 #To decrypt
