@@ -12,13 +12,7 @@
 #   |                                                          |
 
 #START{
-
-try:
-    from kryptospy import *
-except:
-    import os
-    os.chdir("../")
-    from kryptospy import *
+from kryptospy import *
 
 # Example:1
 #For encryption
