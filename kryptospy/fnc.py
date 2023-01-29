@@ -17,11 +17,11 @@ import hashlib
 
 #tobase64:
 def tobase64(data):
-    return base64.b64encode(data.encode('utf-8')).decode('utf-8')
+    return base64.b64encode(data.encode('ascii')).decode('ascii')
 
 #from base64:
 def fromb64(data):
-    return base64.b64decode(data.encode('utf-8')).decode('utf-8')
+    return base64.b64decode(data.encode('ascii')).decode('ascii')
 
 global n
 n=8

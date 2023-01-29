@@ -13,6 +13,7 @@
 
 #START{
 from kryptospy.fnc import *
+import re
 
 #start kryptospy class:
 class kryptospy:
@@ -20,7 +21,11 @@ class kryptospy:
     def __init__(self,password,text):
         #
         self.password=password
+
+        #self.text=re.search("b'(.*)'",str(text.replace("'","__smbl_1__").encode('utf-8'))).group(1)
         self.text=text
+
+        self.split_x="__::__"
 
     #
     def enc(self):
@@ -36,22 +41,17 @@ class kryptospy:
 
         #3:
         ones_list=[]
-        o=ones[0]
         for i in range(len(ones)):
             if ones[i]!="":
                 ones_list.append(ones[i])
     
         zeros_list=[]
-        z=zeros[0]
         for i in range(len(zeros)):
             if zeros[i]!="":
                 zeros_list.append(zeros[i])
 
-        if o=="":
-            all_list=[x for y in zip(zeros_list,ones_list) for x in y]
-        elif z=="":
-            all_list=[x for y in zip(ones_list,zeros_list) for x in y]
-    
+        all_list=kryptospy.twolists(zeros_list,ones_list)
+
         zip_list=""
         for i in range(len(all_list)):
             zip_list+=str(len(all_list[i])-1)
@@ -65,18 +65,18 @@ class kryptospy:
                 if word[i-1]==word[i]:
                     count+=1
                 else :
-                    length.append(word[i-1]+":"+str(count))
+                    length.append(word[i-1]+self.split_x+str(count))
                     count=1
-            length.append(word[i-1]+":"+str(count))
+            length.append(word[i-1]+self.split_x+str(count))
         else:
             i=0
-            length.append(word[i-1]+":"+str(count))
+            length.append(word[i-1]+self.split_x+str(count))
     
         chars=kryptospy.passwd(password)
 
         length_en_zip=""
         for i in range(len(length)):
-            x,y=length[i].split(':')
+            x,y=length[i].split(self.split_x)
             length_en_zip+=chars[int(x)][int(y)]
 
         #
@@ -90,24 +90,27 @@ class kryptospy:
         chars=kryptospy.passwd(password)
         f=""
         for i in range(len(text)):
-            for j in range(len(chars)):
+            for k, mm in enumerate(chars):
                 try:
-                    f+=str(j)*chars[j].index(text[i])
-                except:
-                    pass
+                    j = mm.index(text[i])
+                except ValueError:
+                    continue
+                f+=str(k)*j
         text=f
 
         #3:
         text=[*text]
         binary=""
         for i in range(len(text)):
-            if (i % 2) == 0:
+            if (i % 2)==0:
                 binary+=str("0"*(int(text[i])+1))
             else:
                 binary+=str("1"*(int(text[i])+1))
+        #c="1"*(8-(len([*binary])%8))
         text=binary
 
         #2:
+        
         text=frombinary(text)
 
         #1:
@@ -115,6 +118,7 @@ class kryptospy:
 
         #
         return text
+        #return eval(f"b'{kryptospy.fromb64(text)}'.decode('utf-8')").replace("__smbl_1__","'")
 
     def passwd(text):
         chars_list=[]
@@ -124,11 +128,24 @@ class kryptospy:
             x=[*text]
             for i in range(len(x)):
                 if x[i] not in chars_list and x[i]!="=":
-                    if len(chars_list)<54:
+                    if len(chars_list)<56:
                         chars_list.append(x[i])
                     else:
                         t=False
-        step=6
+        step=7
         return [chars_list[i::step] for i in range(step)]
+    
+    def twolists(list1, list2):
+        newlist = []
+        a1 = len(list1)
+        a2 = len(list2)
+
+        for i in range(max(a1, a2)):
+            if i < a1:
+                newlist.append(list1[i])
+            if i < a2:
+                newlist.append(list2[i])
+
+        return newlist
 
 #}END.

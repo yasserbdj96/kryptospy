@@ -67,7 +67,7 @@
 <h2>Script Usage:</h2>
 
 ```python
-from kryptospy import kryptospy
+from kryptospy import *
 #For encryption
 p1=kryptospy("<PASSWORD*>","<TEXT*>").enc()
 print(p1)
@@ -84,10 +84,10 @@ print(p2)
 <h2>Script Examples:</h2>
 
 ```python
-from kryptospy import kryptospy
+from kryptospy import *
 # Example:1
 #For encryption
-p1=kryptospy("123","Example1").enc()
+p1=kryptospy("123","Example:1").enc()
 print(p1)
     
 #To decrypt
