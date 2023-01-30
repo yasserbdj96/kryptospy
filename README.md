@@ -1,6 +1,6 @@
 <div align="center">
   <h1>kryptospy</h1>
-  <strong>Encrypting texts with a password, with the impossibility of returning to the original text without the password.</strong>
+  <strong>This project aims to develop a secure text encryption system that uses a password for encryption and decryption. The goal is to ensure that the original text cannot be accessed without the password, providing a high level of security for sensitive information. The project will involve researching and implementing various encryption algorithms and techniques to achieve this goal, as well as testing and evaluating the effectiveness of the system. The final product will be a software application that can be used to encrypt and decrypt text messages with a password.</strong>
   <br><br>
 </div>
 
